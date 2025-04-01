@@ -140,6 +140,11 @@ class GUI:
         self.hide(self.back_to_menu_button)
         self.hide(self.close_info_button)
 
+        # Destroy car infos
+        for car in range(6):
+            self.labels[car].destroy()
+        self.labels.clear()
+
         # Place menu buttons again
         self.place(self.start_button, 330, 200)
         self.place(self.help_button, 330, 230)
@@ -152,7 +157,6 @@ class GUI:
         self.hide(self.close_info_button)
         self.canvas.delete("infos")
         self.canvas.delete("storry_teller")
-        self.activate_mouse_event()
 
         for car in range(6):
             self.canvas.delete("place"+str(car))
@@ -160,6 +164,7 @@ class GUI:
             self.labels[car].destroy()
 
         self.labels.clear()
+        self.activate_mouse_event()
 
     # --------------------------------------------- Mouse events -----------------------------------------
     def activate_mouse_event(self):
@@ -239,7 +244,6 @@ class GUI:
 
             self.labels[car].place(x=20 + car*180,y=215)
             self.labels[3 + car].place(x=20 + car*180,y=430)
-
 
 
     # ------------------------------------- Get the country index based on mouse pos ----------------------------------
