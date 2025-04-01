@@ -1,0 +1,49 @@
+[
+    {
+        "id" : "1",
+        "country" : "America de Nord",
+        "text1" : "Acesta este locul 1",
+        "text2" : "Acesta este locul 2",
+        "text3" : "Acesta este locul 3"
+    },
+
+    {
+        "id" : "2",
+        "country" : "America de Sud",
+        "text1" : "Acesta este locul 1",
+        "text2" : "Acesta este locul 2",
+        "text3" : "Acesta este locul 3"
+    },
+
+    {
+        "id" : "3",
+        "country" : "Europa",
+        "text1" : "Acesta este locul 1 Acesta este locul 1 Acesta este locul 1 Acesta este locul 1",
+        "text2" : "Acesta este locul 2",
+        "text3" : "Acesta este locul 3"
+    },
+
+    {
+        "id" : "4",
+        "country" : "Africa",
+        "text1" : "Acesta este locul 1",
+        "text2" : "Acesta este locul 2",
+        "text3" : "Acesta este locul 3"
+    },
+
+    {
+        "id" : "5",
+        "country" : "Asia",
+        "text1" : "Acesta este locul 1",
+        "text2" : "Acesta este locul 2",
+        "text3" : "Acesta este locul 3"
+    },
+
+    {
+        "id" : "6",
+        "country" : "Australia",
+        "text1" : "Acesta este locul 1",
+        "text2" : "Acesta este locul 2",
+        "text3" : "Acesta este locul 3"
+    }
+]

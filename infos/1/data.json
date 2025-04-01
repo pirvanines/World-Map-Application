@@ -1,0 +1,55 @@
+[
+    {
+        "brand" : "Bla bla",
+        "model" : "abc",
+        "fabricatie" : 2000,
+        "putere" : [4, 10],
+        "motorizare" : 100,
+        "ENCAP" : 1
+    },
+
+    {
+        "brand" : "Bla bla",
+        "model" : "abc",
+        "fabricatie" : 2001,
+        "putere" : [4, 10],
+        "motorizare" : 200,
+        "ENCAP" : 1
+    },
+
+    {
+        "brand" : "Bla bla",
+        "model" : "abc",
+        "fabricatie" : 2005,
+        "putere" : [4, 10],
+        "motorizare" : 100,
+        "ENCAP" : 1
+    },
+
+    {
+        "brand" : "Bla bla",
+        "model" : "abc",
+        "fabricatie" : 2009,
+        "putere" : [4, 10],
+        "motorizare" : 100,
+        "ENCAP" : 1
+    },
+
+    {
+        "brand" : "Bla bla",
+        "model" : "abc",
+        "fabricatie" : 2010,
+        "putere" : [4, 10],
+        "motorizare" : 100,
+        "ENCAP" : 1
+    },
+
+    {
+        "brand" : "Bla bla",
+        "model" : "abc",
+        "fabricatie" : 2000,
+        "putere" : [4, 10],
+        "motorizare" : 100,
+        "ENCAP" : 1
+    }
+]
