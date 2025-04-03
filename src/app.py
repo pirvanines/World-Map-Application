@@ -23,6 +23,10 @@ class GUI:
         self.window.pack(padx=0, pady=0)
         
         self.canvas = tk.Canvas(root, width=800, height=500)
+        self.car_frames = []
+        for index in range(6):
+            frame = tk.Frame(self.root, width=170, height=215, relief='raised', borderwidth=2)
+            self.car_frames.append(frame)
         
         # Incarca datele de afisat pe ecran
         self.background = []
@@ -34,6 +38,7 @@ class GUI:
         self.load_storry_teller()
         self.load_cars()
 
+        # Creaza butoanele de care am nevoie pe parcurs
         self.start_button = tk.Button(self.root, text="Start", width=20, command=self.start_game)
         self.help_button = tk.Button(self.root, text="Help", width=20, command=self.show_help)
         self.quit_button = tk.Button(self.root, text="Quit", width=20, command=self.quit_game)
@@ -50,7 +55,6 @@ class GUI:
         self.carInfos = []
         self.load_infos()
         
-        #print(self.carInfos[0]['id'])
         # Starea initiala a jocului
         self.state = 0
 
@@ -224,26 +228,24 @@ class GUI:
                 self.place(self.close_info_button, 529, 35)
                 self.deactivate_mouse_event()
 
-                self.print_infos(index)
+                self.print_cars(index)
             
             else:
                 messagebox.showerror("Eroare", "Atentie:\n\nNu se gasesc producatori pe acest continent...")
 
     
-    def print_infos(self, index):
+    def print_cars(self, index):
         #print(self.carInfos[index-1]['country'])
         # Load infos about the top 6 cars
         for car in range(6):
             self.labels.append(tk.Label(self.canvas, text = self.carInfos[int(index/2)][car]['brand'] + '\n' + self.carInfos[int(index/2)][car]['model'], wraplength=170))
         
         for car in range(3):
-            self.canvas.create_image(20 + car*180, 40, anchor="nw", image=self.cars[int(index/2)][car], tags="place"+str(car))
-            self.canvas.first_place = self.cars[int(index/2)][car]
-            self.canvas.create_image(20 + car*180, 255, anchor="nw", image=self.cars[int(index/2)][3 + car], tags="place"+str(car+3))
-            self.canvas.second_place = self.cars[int(index/2)][3+car]
+            self.canvas.create_image(15 + car*180, 40, anchor="nw", image=self.cars[int(index/2)][car], tags="place"+str(car))
+            self.canvas.create_image(15 + car*180, 255, anchor="nw", image=self.cars[int(index/2)][3 + car], tags="place"+str(car+3))
 
-            self.labels[car].place(x=20 + car*180,y=215)
-            self.labels[3 + car].place(x=20 + car*180,y=430)
+            self.labels[car].place(x=15 + car*180,y=215)
+            self.labels[3 + car].place(x=15 + car*180,y=430)
 
 
     # ------------------------------------- Get the country index based on mouse pos ----------------------------------
