@@ -211,13 +211,13 @@ class GUI:
         elif self.state == 3:
             if index % 2 == 1:
                 # Desenam dreptunghiul opac pe canvas
-                self.canvas.create_rectangle(
-                    10, 30, width_info, height_info, 
-                    fill="lightblue",  
-                    outline="black",  
-                    stipple="gray50",  
-                    tags="infos"
-                )
+                #self.canvas.create_rectangle(
+                #    10, 30, width_info, height_info, 
+                #    fill="lightblue",  
+                #    outline="black",  
+                #    stipple="gray50",  
+                #    tags="infos"
+                #)
 
                 image_x = width_info + 10
                 image_y = height_info
