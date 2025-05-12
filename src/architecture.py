@@ -34,12 +34,12 @@ class GUI:
 
         self.car_canvas = []
         for index in range(6):
-            canvas = tk.Canvas(self.car_frames[index], width=170, height=170)
-            self.car_canvas.append(frame)
+            canvas = tk.Canvas(self.car_frames[index], width=145, height=130)
+            self.car_canvas.append(canvas)
 
         # Create all necessary labels
         self.game_title = tk.Label(self.menu_frame, text=game_title, font=("Arial", 30, "bold"))
-        self.instructions = tk.Label(self.game_frame, text=" Apasa Click pe harta!")
+        self.instructions = tk.Label(self.game_frame, text="Apasa Click pe harta!")
 
         self.car_labels = []
         for index in range(6):
@@ -52,8 +52,8 @@ class GUI:
         self.quit_button = tk.Button(self.menu_frame, text="Quit", width=20, height=2, command=self.quit_game)
 
         self.back_to_menu_button = tk.Button(self.game_frame, text="Inapoi la meniu", command=self.back_to_menu)
-        self.close_data_button = tk.Button(self.car_menu_frame, text="X", command=self.remove_infos)
-        self.close_info_button = tk.Button(self.car_infos_frame, text="X", command=self.remove_infos)
+        self.close_data_button = tk.Button(self.car_menu_frame, text="X", width=2, height=1, command=self.remove_infos)
+        self.close_info_button = tk.Button(self.car_infos_frame, text="X",width=2, height=1, command=self.remove_infos)
 
         # Store necesary data
         self.game_background = []
@@ -82,12 +82,12 @@ class GUI:
             self.game_data["pictures"].append(continent)
     
     def load_infos(self):
+        self.game_data["data"] = []
         self.load_continent_infos(1)
         self.load_continent_infos(3)
         self.load_continent_infos(5)
 
     def load_continent_infos(self, index):
-        self.game_data["data"] = []
         carsInfoContinent = []
         with open(f'..\\infos\\{index}\\data.json') as file:
             data = json.load(file)
@@ -148,6 +148,30 @@ class GUI:
         self.back_to_menu_button.place(x=10,y=0)
         self.bind_event(self.game_canvas, "<Button-1>", self.on_click)
 
+    def place_items(self):
+        # Place each object frame on menu
+        for index in range(3):
+            self.car_frames[index].place(x=10+index*180,y=20)
+            self.car_frames[3+index].place(x=10+index*180,y=240)
+
+        # Place each canvas on frames
+        for index in range(3):
+            self.car_canvas[index].place(x=10,y=10)
+            self.car_canvas[3+index].place(x=10,y=10)
+
+        # Place each label on frames
+        for index in range(3):
+            self.car_labels[index].place(x=10,y=155)
+            self.car_labels[3+index].place(x=10,y=155)
+        
+        # Activate hover function
+        for index in range(6):
+            self.car_frames[index].bind("<Enter>", lambda event: self.on_enter(event, 0))
+            self.car_frames[index].bind("<Leave>", lambda event: self.on_leave(event, 0))
+            for widget in self.car_frames[index].winfo_children():
+                widget.bind("<Enter>", lambda event: self.on_enter(event, 1))
+                widget.bind("<Leave>", lambda event: self.on_leave(event, 1))
+
     def clear_frame(self, frame):
         frame.pack_forget()
     
@@ -167,6 +191,9 @@ class GUI:
         self.place_menu()
 
     def remove_infos(self):
+        self.car_menu_frame.place_forget()
+        self.car_infos_frame.place_forget()
+        self.bind_event(self.game_canvas, "<Button-1>", self.on_click)
         print("remove")       
 
     # ------------------------------------------- Mouse events -------------------------------------
@@ -185,6 +212,19 @@ class GUI:
             messagebox.showerror("Eroare", "In ocean nu poti gasi masini :(")
         else:
             self.state_machine(index)
+    
+    def on_enter(self, event, flag):
+        #print(event)
+        if flag == 0:
+            event.widget.configure(relief='raised', borderwidth=3)
+        else:
+            event.widget.master.configure(relief='raised', borderwidth=3)
+
+    def on_leave(self, event, flag):
+        if flag == 0:
+            event.widget.configure(relief='flat')
+        else:
+            event.widget.master.configure(relief='flat')
 
     # ---------------------------------------------- Print infos -------------------------------------------
     def state_machine(self, index):
@@ -218,11 +258,11 @@ class GUI:
                 self.car_menu_frame.place(x=10,y=30)
                 self.car_infos_frame.place(x=570, y=30)
 
-                for index in range(3):
-                    self.car_frames[index].place(x=10+index*180,y=20)
-                    self.car_frames[3+index].place(x=10+index*180,y=240)
+                # Place the delete button
+                self.close_data_button.place(relx=1.0, rely=0.0, anchor="ne")
 
-                
+                # Place all items
+                self.place_items()
 
                 print("hello")
             
