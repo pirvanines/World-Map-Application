@@ -24,7 +24,7 @@ class GUI:
 
         # ------ Create frames ------
         self.car_menu_frame = tk.Frame(self.game_canvas, bg="lightblue", width=550, height=460)
-        self.car_infos_frame = tk.Frame(self.game_canvas, bg="white", width=220, height=460)
+        self.car_infos_frame = tk.Frame(self.game_canvas, bg="white", width=220, height=460, relief='raised', borderwidth=2)
 
         # Create canvases and frames to display data
         self.car_frames = []
@@ -36,6 +36,8 @@ class GUI:
         for index in range(6):
             canvas = tk.Canvas(self.car_frames[index], width=145, height=130)
             self.car_canvas.append(canvas)
+        
+        self.infos_canvas = tk.Canvas(self.car_infos_frame, width=220, height=230)
 
         # Create all necessary labels
         self.game_title = tk.Label(self.menu_frame, text=game_title, font=("Arial", 30, "bold"))
@@ -45,6 +47,8 @@ class GUI:
         for index in range(6):
             label = tk.Label(self.car_frames[index], text="")
             self.car_labels.append(label)
+
+        self.infos_label = tk.Label(self.car_infos_frame, width=220, height=230)
 
         # Create all buttons
         self.start_button = tk.Button(self.menu_frame, text="Start", width=20, height=2, command=self.start_game)
@@ -63,8 +67,8 @@ class GUI:
 
     # ------------------------------------- Load data into memory -------------------------------------
     def load_background(self):
-        self.game_background.append(tk.PhotoImage(file="..\\resources\\map.png"))
-        self.game_background.append(tk.PhotoImage(file="..\\resources\\background.png"))
+        self.game_background.append(tk.PhotoImage(file="..//resources//map.png"))
+        self.game_background.append(tk.PhotoImage(file="..//resources//background.png"))
     
     def load_pictures(self):
         self.game_data["pictures"] = []
@@ -72,12 +76,12 @@ class GUI:
             continent = []
             index = i*2+1
 
-            continent.append(tk.PhotoImage(file=f"..\\resources\\{index}\\no1.png"))
-            continent.append(tk.PhotoImage(file=f"..\\resources\\{index}\\no2.png"))
-            continent.append(tk.PhotoImage(file=f"..\\resources\\{index}\\no3.png"))
-            continent.append(tk.PhotoImage(file=f"..\\resources\\{index}\\no4.png"))
-            continent.append(tk.PhotoImage(file=f"..\\resources\\{index}\\no5.png"))
-            continent.append(tk.PhotoImage(file=f"..\\resources\\{index}\\no6.png"))
+            continent.append(tk.PhotoImage(file=f"..//resources//{index}//no1.png"))
+            continent.append(tk.PhotoImage(file=f"..//resources//{index}//no2.png"))
+            continent.append(tk.PhotoImage(file=f"..//resources//{index}//no3.png"))
+            continent.append(tk.PhotoImage(file=f"..//resources//{index}//no4.png"))
+            continent.append(tk.PhotoImage(file=f"..//resources//{index}//no5.png"))
+            continent.append(tk.PhotoImage(file=f"..//resources//{index}//no6.png"))
 
             self.game_data["pictures"].append(continent)
     
@@ -89,7 +93,7 @@ class GUI:
 
     def load_continent_infos(self, index):
         carsInfoContinent = []
-        with open(f'..\\infos\\{index}\\data.json') as file:
+        with open(f'..//infos//{index}//data.json') as file:
             data = json.load(file)
             for element in data:
                 current = {}
@@ -106,12 +110,12 @@ class GUI:
 
     def load_narrator(self):
         self.game_data["narrator"] = []
-        self.game_data["narrator"].append(tk.PhotoImage(file="..\\resources\\1\\guy.png"))
-        self.game_data["narrator"].append(tk.PhotoImage(file="..\\resources\\3\\guy.png"))
-        self.game_data["narrator"].append(tk.PhotoImage(file="..\\resources\\5\\guy.png"))
+        self.game_data["narrator"].append(tk.PhotoImage(file="..//resources//1//guy.png"))
+        self.game_data["narrator"].append(tk.PhotoImage(file="..//resources//3//guy.png"))
+        self.game_data["narrator"].append(tk.PhotoImage(file="..//resources//5//guy.png"))
     
     def load_map(self):
-        with open("..\\infos\\others\\matrix.txt") as file:
+        with open("..//infos//others//matrix.txt") as file:
             for line in file:
                 row = list(map(int, line.split()))
                 self.game_map.append(row)
@@ -164,6 +168,9 @@ class GUI:
             self.car_labels[index].place(x=10,y=155)
             self.car_labels[3+index].place(x=10,y=155)
         
+        # Place story teller
+        self.infos_canvas.place(x=10, y=10)
+
         # Activate hover function
         for index in range(6):
             self.car_frames[index].bind("<Enter>", lambda event: self.on_enter(event, 0))
@@ -171,6 +178,19 @@ class GUI:
             for widget in self.car_frames[index].winfo_children():
                 widget.bind("<Enter>", lambda event: self.on_enter(event, 1))
                 widget.bind("<Leave>", lambda event: self.on_leave(event, 1))
+
+    def assign_data(self, continent):
+        for index in range(3):
+            # Assign images
+            self.car_canvas[index].create_image(0,0, anchor="nw", image=self.game_data["pictures"][continent][index])
+            self.car_canvas[3+index].create_image(0,0, anchor="nw", image=self.game_data["pictures"][continent][3+index])
+        
+            # Assign text
+            self.car_labels[index].config(anchor="center", text=self.game_data["data"][continent][index]["brand"] + "\n" + self.game_data["data"][continent][index]["model"])
+            self.car_labels[3+index].config(anchor="center", text=self.game_data["data"][continent][3+index]["brand"] + "\n" + self.game_data["data"][continent][3+index]["model"])
+
+        # Assign storry teller
+        self.infos_canvas.create_image(0,0, anchor="nw", image=self.game_data["narrator"][continent])
 
     def clear_frame(self, frame):
         frame.pack_forget()
@@ -260,6 +280,9 @@ class GUI:
 
                 # Place the delete button
                 self.close_data_button.place(relx=1.0, rely=0.0, anchor="ne")
+
+                # Asign data to frames
+                self.assign_data(int(index/2))
 
                 # Place all items
                 self.place_items()
