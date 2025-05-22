@@ -3,7 +3,7 @@ from tkinter import messagebox
 import json
 
 # Informatii fereastra
-game_title = "Joc"
+game_title = "Masini de top!"
 geometry = "800x500"
 
 class GUI:
@@ -37,7 +37,7 @@ class GUI:
             canvas = tk.Canvas(self.car_frames[index], width=145, height=130)
             self.car_canvas.append(canvas)
         
-        self.infos_canvas = tk.Canvas(self.car_infos_frame, width=220, height=230)
+        self.infos_canvas = tk.Canvas(self.car_infos_frame, width=190, height=220)
 
         # Create all necessary labels
         self.game_title = tk.Label(self.menu_frame, text=game_title, font=("Arial", 30, "bold"))
@@ -48,11 +48,11 @@ class GUI:
             label = tk.Label(self.car_frames[index], text="")
             self.car_labels.append(label)
 
-        self.infos_label = tk.Label(self.car_infos_frame, width=220, height=230)
+        self.infos_label = tk.Label(self.car_infos_frame, text="", wraplength=190, justify="center")
 
         # Create all buttons
         self.start_button = tk.Button(self.menu_frame, text="Start", width=20, height=2, command=self.start_game)
-        self.help_button = tk.Button(self.menu_frame, text="Help", width=20, height=2, command=self.show_help)
+        self.help_button = tk.Button(self.menu_frame, text="Instructiuni", width=20, height=2, command=self.show_help)
         self.quit_button = tk.Button(self.menu_frame, text="Quit", width=20, height=2, command=self.quit_game)
 
         self.back_to_menu_button = tk.Button(self.game_frame, text="Inapoi la meniu", command=self.back_to_menu)
@@ -64,6 +64,7 @@ class GUI:
         self.game_data = {}
         self.game_map = []
         self.state = 0
+        self.selected_continent = 0
 
     # ------------------------------------- Load data into memory -------------------------------------
     def load_background(self):
@@ -100,10 +101,11 @@ class GUI:
 
                 current['brand'] = element['brand']
                 current['model'] = element['model']
-                current['an'] = element['fabricatie']
+                current['fabricatie'] = element['fabricatie']
                 current['putere'] = element['putere']
+                current['torque'] = element['torque']
                 current['motorizare'] = element['motorizare']
-                current['ENCAP'] = element['ENCAP']
+                current['NCAP'] = element['NCAP']
                 
                 carsInfoContinent.append(current)
         self.game_data["data"].append(carsInfoContinent)
@@ -175,9 +177,14 @@ class GUI:
         for index in range(6):
             self.car_frames[index].bind("<Enter>", lambda event: self.on_enter(event, 0))
             self.car_frames[index].bind("<Leave>", lambda event: self.on_leave(event, 0))
+            #self.car_frames[index].bind("<Button-1>", lambda event: self.on_print(event, 0))
             for widget in self.car_frames[index].winfo_children():
                 widget.bind("<Enter>", lambda event: self.on_enter(event, 1))
                 widget.bind("<Leave>", lambda event: self.on_leave(event, 1))
+                #widget.bind("<Button-1>", lambda event: self.on_print(event, 1))
+
+        # Place infos label
+        self.infos_label.place(x=10,y=240)
 
     def assign_data(self, continent):
         for index in range(3):
@@ -186,8 +193,12 @@ class GUI:
             self.car_canvas[3+index].create_image(0,0, anchor="nw", image=self.game_data["pictures"][continent][3+index])
         
             # Assign text
-            self.car_labels[index].config(anchor="center", text=self.game_data["data"][continent][index]["brand"] + "\n" + self.game_data["data"][continent][index]["model"])
-            self.car_labels[3+index].config(anchor="center", text=self.game_data["data"][continent][3+index]["brand"] + "\n" + self.game_data["data"][continent][3+index]["model"])
+            self.car_labels[index].config(anchor="center", text=self.game_data["data"][continent][index]["brand"] + " " + \
+                                                                 self.game_data["data"][continent][index]["model"] + "\n" + \
+                                                                 self.game_data["data"][continent][index]["fabricatie"])
+            self.car_labels[3+index].config(anchor="center", text=self.game_data["data"][continent][3+index]["brand"] + " " + \
+                                                                 self.game_data["data"][continent][3+index]["model"] + "\n" + \
+                                                                 self.game_data["data"][continent][3+index]["fabricatie"])
 
         # Assign storry teller
         self.infos_canvas.create_image(0,0, anchor="nw", image=self.game_data["narrator"][continent])
@@ -201,20 +212,38 @@ class GUI:
         self.place_game()
 
     def show_help(self):
-        print("help")
+        messagebox.showinfo("Ajutor", "Instructiuni:\n\nApasa Start pentru a incepe jocul! Apasa pe harta pentru a afisa informatii cu privire la masinile care se gasesc in regiunea respectiva")
 
     def quit_game(self):
-        print("quit")  
+        self.root.quit()
 
     def back_to_menu(self):
         self.clear_frame(self.game_frame)
         self.place_menu()
 
     def remove_infos(self):
+        self.infos_label.config(anchor="center", text="")
         self.car_menu_frame.place_forget()
         self.car_infos_frame.place_forget()
-        self.bind_event(self.game_canvas, "<Button-1>", self.on_click)
-        print("remove")       
+        self.bind_event(self.game_canvas, "<Button-1>", self.on_click)       
+
+    def print_car_infos(self, event):
+        components = str(event.widget).split('.')
+        component = components[4]
+
+        if len(component) > len('!frame'): 
+            index = int(component[len('!frame'):]) - 1
+        else:
+            index = 0
+        
+        infos = "Brand: " + self.game_data["data"][self.selected_continent][index]['brand'] + " " + \
+                self.game_data["data"][self.selected_continent][index]['model'] + "\n" + \
+                "An productie: " + self.game_data["data"][self.selected_continent][index]['fabricatie'] + "\n" + \
+                "Motorizare: " + self.game_data["data"][self.selected_continent][index]['motorizare'] + "\n" + \
+                "Cai putere: " + self.game_data["data"][self.selected_continent][index]['putere'] + "\n" + \
+                "Torque: " + self.game_data["data"][self.selected_continent][index]['torque'] + "\n" + \
+                "NCAP (siguranta): " + self.game_data["data"][self.selected_continent][index]['NCAP'] 
+        self.infos_label.config(anchor="center", text=infos)
 
     # ------------------------------------------- Mouse events -------------------------------------
     def bind_event(self, map_object, command, function):
@@ -235,12 +264,14 @@ class GUI:
     
     def on_enter(self, event, flag):
         #print(event)
+        event.widget.bind("<Button-1>", self.print_car_infos)
         if flag == 0:
             event.widget.configure(relief='raised', borderwidth=3)
         else:
             event.widget.master.configure(relief='raised', borderwidth=3)
 
     def on_leave(self, event, flag):
+        event.widget.unbind("<Button-1>")
         if flag == 0:
             event.widget.configure(relief='flat')
         else:
@@ -273,12 +304,13 @@ class GUI:
             if index % 2 == 1:
 
                 self.unbind_event(self.game_canvas, "<Button-1>")
+                self.selected_continent = int(index/2)
 
-                # Prepare the frames
+                # Prepare the necessary frames
                 self.car_menu_frame.place(x=10,y=30)
                 self.car_infos_frame.place(x=570, y=30)
 
-                # Place the delete button
+                # Place the delete infos button
                 self.close_data_button.place(relx=1.0, rely=0.0, anchor="ne")
 
                 # Asign data to frames
@@ -286,8 +318,6 @@ class GUI:
 
                 # Place all items
                 self.place_items()
-
-                print("hello")
             
             else:
                 messagebox.showerror("Eroare", "Atentie:\n\nNu se gasesc producatori pe acest continent...")

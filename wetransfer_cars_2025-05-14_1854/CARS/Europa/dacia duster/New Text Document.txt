@@ -1,0 +1,5 @@
+motorizare: 1.5 dCi (1.461 cm^3)
+cai putere: 148 cai putere
+Torque: 120 Nm
+An productie: 2010-prezent
+ncap (siguranta): 2011, Duster-ul a fost testat de Euro NCAP, primind un rating de trei stele din cinci. I s-au acordat 27 de puncte (74%) pentru protectia ocupantului adult, 38 de puncte (78%) pentru protectia ocupantului copil, 10 puncte (28%) pentru protectia pietonilor si doua puncte (29%) pentru functiile de asistenta la siguranta. In aceasta categorie din urma, ratingul a fost influentat de lipsa limitatorului de viteza si de faptul ca controlul electronic al stabilitatii este disponibil doar optional.

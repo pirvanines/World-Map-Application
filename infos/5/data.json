@@ -1,55 +1,61 @@
 [
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2000,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Lexus",
+        "model" : "LFA",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul LFA a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2001,
-        "putere" : [4, 10],
-        "motorizare" : 200,
-        "ENCAP" : 1
+        "brand" : "Mazda",
+        "model" : "MX-5",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul MX-5 a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2005,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Nio",
+        "model" : "EP9",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul EP9 a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2009,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Nissan",
+        "model" : "GT-R",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul GT-R a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2010,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Nissan",
+        "model" : "X-Trail",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul X-Trail a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2000,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Toyota",
+        "model" : "Supra",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul Supra a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     }
 ]

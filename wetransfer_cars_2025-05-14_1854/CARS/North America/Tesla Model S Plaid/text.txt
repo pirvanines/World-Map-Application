@@ -1,0 +1,5 @@
+motorizare: electric trimotor AWD
+cai putere: 1250 cai putere
+Torque: 1500 Nm
+An productie: 2013-prezent
+ncap (siguranta): Elon Musk exceleaza prin siguranta masinilor prin tehnologiile si softurile de electromotor al acestora. Desi masinile sunt modeste prin design si interior, modelele tesla ofera siguranta si perfomarnta utilizand fiabilitatea motoarelor electrice din lithiu (5/5 stele)

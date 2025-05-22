@@ -1,55 +1,61 @@
 [
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2000,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Cadillac",
+        "model" : "CTS-V",
+        "fabricatie" : "2007-2020 (3 generatii)",
+        "putere" : "640 cai putere",
+        "torque" : "854 Nm",
+        "motorizare" : "6.2L V8 (6200 cm^3)",
+        "NCAP" : "Sedanul CTS-V a obtinut note de top la testele de impact frontal si lateral. Cunoscut pentru durabilitatea sa, CTS-V Sedan are o reputatie solida in mentinerea sigurantei in timp. (5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2001,
-        "putere" : [4, 10],
-        "motorizare" : 200,
-        "ENCAP" : 1
+        "brand" : "Chevrolet",
+        "model" : "Corvette",
+        "fabricatie" : "1953-prezent (8 generatii)",
+        "putere" : "1064 cai putere",
+        "torque" : "854 Nm",
+        "motorizare" : "6.2L V8 (6200 cm^3)",
+        "NCAP" : "Pe parcursul anilor modelul de corvette a evoluat prin tehnologizarea tractiunii si a sigurantei soferului (4/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2005,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Dodge Viper",
+        "model" : "SRT",
+        "fabricatie" : "1991-2010, 2013-2017",
+        "putere" : "645 cai putere",
+        "torque" : "813 Nm",
+        "motorizare" : "viper v10 (8000 cm^3)",
+        "NCAP" : "Are 2 stele din 5 pe siguranta deoarece este slab acoperit de airbag-uri si geometria masinii tinde spre derapaje incontrolabile"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2009,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Ford",
+        "model" : "Mustang",
+        "fabricatie" : "1964-prezent (7 generatii)",
+        "putere" : "525 cai putere",
+        "torque" : "490 Nm",
+        "motorizare" : "5.0L V8 (5000 cm^3)",
+        "NCAP" : "Exceleaza prin performanta si stilul distractiv de a il conduce, insa acest tip de masina ramane reticient din cauza derapajului incontrolabil, prin geometria si tractiunea pe spate ce duce toata puterea foarte rapid la roti. (3.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2010,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "SSC",
+        "model" : "Tuatra",
+        "fabricatie" : "2004",
+        "putere" : "1300 cai putere",
+        "torque" : "1300 Nm",
+        "motorizare" : "6.2L (6188 cm^3)",
+        "NCAP" : "Aceasta masina nu a fost inregistrata, dar nu a fost conceputa pentru siguranta, doar pentru performanta, atingand o viteza limita de 508 km/h."
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2000,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Tesla",
+        "model" : "Model S Plaid",
+        "fabricatie" : "2013-prezent",
+        "putere" : "1250 cai putere",
+        "torque" : "1500 Nm",
+        "motorizare" : "electric trimotor AWD",
+        "NCAP" : "Elon Musk exceleaza prin siguranta masinilor prin tehnologiile si softurile de electromotor al acestora. Desi masinile sunt modeste prin design si interior, modelele tesla ofera siguranta si perfomarnta utilizand fiabilitatea motoarelor electrice din lithiu (5/5 stele)"
     }
 ]

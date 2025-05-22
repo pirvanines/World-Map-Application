@@ -1,55 +1,61 @@
 [
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2000,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "BWM",
+        "model" : "Isetta",
+        "fabricatie" : "1955-1958",
+        "putere" : "8 cai putere",
+        "torque" : "6 Nm",
+        "motorizare" : "236 cm^3",
+        "NCAP" : "Aceasta masina nu a fost inregistrata la ncap."
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2001,
-        "putere" : [4, 10],
-        "motorizare" : 200,
-        "ENCAP" : 1
+        "brand" : "BMW",
+        "model" : "M3",
+        "fabricatie" : "1986-prezent",
+        "putere" : "999 cai putere",
+        "torque" : "1111 Nm",
+        "motorizare" : "4.4L V8 (4400 cm^3)",
+        "NCAP" : "Bmw M3 exceleaza privind siguranta la modelele noi. Sistemul de tractiune spate este foarte fiabil pentru condusul normal si sportiv, prin modificarea intaririi suspensiilor si sistemul de ESP avansat. Sistemul de airbag reuseste sa acopere o arie mare a masinii. (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2005,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Dacia",
+        "model" : "Duster",
+        "fabricatie" : "2010-prezent",
+        "putere" : "148 cai putere",
+        "torque" : "120 Nm",
+        "motorizare" : "1.5 dCi (1.461 cm^3)",
+        "NCAP" : "Duster-ul a primit 27 de puncte (74%) pentru protectia ocupantului adult, 38 de puncte (78%) pentru protectia ocupantului copil, 10 puncte (28%) pentru protectia pietonilor si 2 puncte (29%) pentru functiile de asistenta la siguranta. (3/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2009,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Ferrari",
+        "model" : "F40",
+        "fabricatie" : "1987-1922",
+        "putere" : "477 cai putere",
+        "torque" : "470 Nm",
+        "motorizare" : "2.9L twin turbo (2936 cm^3)",
+        "NCAP" : "Aceasta masina nu a fost inregistrata la vreun test de siguranta."
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2010,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Porsche",
+        "model" : "911",
+        "fabricatie" : "1964-prezent",
+        "putere" : "525 cai putere",
+        "torque" : "580 Nm",
+        "motorizare" : "3.6 twin turbo (3691 cm^3)",
+        "NCAP" : "Modelul 911 a evoluat la nivel de siguranta prin tehnologii noi si utilizarea a mai multor airbag-uri si a unui roll cage la modelele mai puternice (4.5/5 stele)"
     },
 
     {
-        "brand" : "Bla bla",
-        "model" : "abc",
-        "fabricatie" : 2000,
-        "putere" : [4, 10],
-        "motorizare" : 100,
-        "ENCAP" : 1
+        "brand" : "Volvo",
+        "model" : "XC90",
+        "fabricatie" : "2002-prezent",
+        "putere" : "311 cai putere",
+        "torque" : "441 Nm",
+        "motorizare" : "4.4L V8 (4414 cm^3)",
+        "NCAP" : "Firma Volvo ofera cea mai buna siguranta de pe toata piata automotive prin utilizarea unei structuri rezistente ale caroserierie, tehnologii avansate de siguranta si airbag-uri eficiente. Pe euro ncap are scorul de 5 din 5 stele."
     }
 ]
